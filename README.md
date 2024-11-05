@@ -15,7 +15,7 @@
    php artisan generate:env
 4. Войдите в контейнер cinerama-php:
    ```bash
-   docker exec -it cinerama-php bash
+   docker exec -it new-cinerama-php bash
 5. Внутри контейнера запустите миграцию:
    ```bash
    php artisan migrate
@@ -39,7 +39,7 @@ Role: admin <br>
 ## Шаги для тестирование
 1. Войдите в контейнер cinerama-php:
    ```bash
-   docker exec -it cinerama-php bash
+   docker exec -it new-cinerama-php bash
 2. Внутри контейнера запустите миграцию для тестовой среды:
    ```bash
    php artisan migrate --env=testing
