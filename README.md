@@ -43,7 +43,8 @@
    ```bash
    php artisan db:seed
 
-Данные пользователя с ролью Admin:
+Данные пользователя с ролью Admin:<br>
+Ссылка на админку: /admin
 
 Email: admin@mail.ru <br>
 Password: 12345678 <br>
@@ -82,9 +83,12 @@ Role: admin <br>
    php artisan db:seed
 
 ## Шаги для тестирование для Open Server && XAMPP
-1. Запустите миграцию для тестовой среды:
+1. Запустите composer:
+   ```bash
+   composer install
+2. Запустите миграцию для тестовой среды:
    ```bash
    php artisan migrate --env=testing
-2. Запустите тесты:
+3. Запустите тесты:
    ```bash
    php artisan test
