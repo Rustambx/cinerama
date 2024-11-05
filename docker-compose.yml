@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+    new-cinerama-nginx:
+        container_name: new-cinerama-nginx
+        build: ./docker/nginx
+        volumes:
+            - .:/var/www/html
+        ports:
+            - 80:80
+
+    new-cinerama-php:
+        container_name: new-cinerama-php
+        build: ./docker/php
+        ports:
+            - 9000:9000
+        volumes:
+            - .:/var/www/html
+            - ./docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+
+    new-cinerama-mysql:
+        container_name: new-cinerama-mysql
+        build: docker/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: cinerama_db
+            MYSQL_TEST_DATABASE: cinerama_test_db
+        volumes:
+            - ./docker/mysql/data:/var/lib/mysql
+        ports:
+            - 3306:3306
+
+    new-cinerama-mysql-test:
+        container_name: new-cinerama-mysql-test
+        image: mysql:8.0
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: cinerama_test_db
+        volumes:
+            - ./docker/mysql/test_data:/var/lib/mysql
+        ports:
+            - 3307:3306
