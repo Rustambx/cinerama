@@ -54,7 +54,7 @@ class GenreControllerTest extends TestCase
         $response = $this->post(route('admin.genres.store'), $data);
 
         $response->assertRedirect(route('admin.genres.index'));
-        $response->assertSessionHas('success', 'Genre created successfully');
+        $response->assertSessionHas('success', 'Жанр создан успешно');
     }
 
     public function test_edit()
@@ -83,7 +83,7 @@ class GenreControllerTest extends TestCase
         $response = $this->put(route('admin.genres.update', $genre->id), $data);
 
         $response->assertRedirect(route('admin.genres.index'));
-        $response->assertSessionHas('success', 'Genre updated successfully');
+        $response->assertSessionHas('success', 'Жанр успешно обновлен');
     }
 
     public function test_destroy()
@@ -97,6 +97,6 @@ class GenreControllerTest extends TestCase
         $response = $this->delete(route('admin.genres.destroy', $genreId));
 
         $response->assertRedirect(route('admin.genres.index'));
-        $response->assertSessionHas('success', 'Genre deleted successfully');
+        $response->assertSessionHas('success', 'Жанр успешно удален');
     }
 }

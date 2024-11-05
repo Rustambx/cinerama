@@ -73,7 +73,7 @@ class MovieControllerTest extends TestCase
         $response = $this->post(route('admin.movies.store'), $data);
 
         $response->assertRedirect(route('admin.movies.index'));
-        $response->assertSessionHas('success', 'Movie created successfully');
+        $response->assertSessionHas('success', 'Фильм успешно создан');
     }
 
     public function test_edit()
@@ -116,7 +116,7 @@ class MovieControllerTest extends TestCase
         $response = $this->put(route('admin.movies.update', $movie->id), $data);
 
         $response->assertRedirect(route('admin.movies.index'));
-        $response->assertSessionHas('success', 'Movie updated successfully');
+        $response->assertSessionHas('success', 'Фильм успешно обновлен');
     }
 
     public function test_destroy()
@@ -129,6 +129,6 @@ class MovieControllerTest extends TestCase
         $response = $this->delete(route('admin.movies.destroy', $movie->id));
 
         $response->assertRedirect(route('admin.movies.index'));
-        $response->assertSessionHas('success', 'Movie deleted successfully');
+        $response->assertSessionHas('success', 'Фильм успешно удален');
     }
 }
